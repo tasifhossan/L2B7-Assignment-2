@@ -55,7 +55,7 @@ export const getAllIssues = async (
   const issues = result.rows;
   if (issues.length === 0) return [];
 
-  // Fetch reporters separately (NO JOIN rule!)
+  // Fetch reporters separate
   const ids = [...new Set(issues.map((i) => i.reporter_id))];
   const reporters = await pool.query(
     `SELECT id, name, role FROM users WHERE id = ANY($1::int[])`,
