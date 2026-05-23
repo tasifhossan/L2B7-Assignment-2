@@ -2,7 +2,7 @@
 
 > A collaborative platform for software teams to report bugs, suggest features, and coordinate resolutions.
 
-**Live URL:** `[https://devpulse-delta.vercel.app/](https://devpulse-delta.vercel.app/)`
+**Live URL:** [DevPulse](https://devpulse-delta.vercel.app/)
 
 ---
 
