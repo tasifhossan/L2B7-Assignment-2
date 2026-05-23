@@ -11,6 +11,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (_req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Welcome to DevPulse API",
+    version: "1.0.0",
+    status: "Server is running",
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/issues", issueRoutes);
 
