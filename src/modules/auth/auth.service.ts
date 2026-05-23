@@ -16,7 +16,7 @@ export const registerUser = async (
   if (existing.rows.length > 0)
     throw { status: 400, message: "Email already registered" };
 
-  const hashed = await bcrypt.hash(password, SALT); // ← 8-8
+  const hashed = await bcrypt.hash(password, SALT);
   const result = await pool.query(
     `INSERT INTO users (name, email, password, role)
      VALUES ($1, $2, $3, $4)
@@ -33,7 +33,7 @@ export const loginUser = async (email: string, password: string) => {
   const user = result.rows[0];
   if (!user) throw { status: 401, message: "Invalid credentials" };
 
-  const match = await bcrypt.compare(password, user.password); // ← 8-8
+  const match = await bcrypt.compare(password, user.password);
   if (!match) throw { status: 401, message: "Invalid credentials" };
 
   // JWT
